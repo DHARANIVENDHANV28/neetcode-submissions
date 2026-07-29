@@ -1,0 +1,27 @@
+class Solution:
+    def minAvailableDuration(self, slots1: List[List[int]], slots2: List[List[int]], duration: int) -> List[int]:
+        output = []
+        slots1.sort()
+        slots2.sort()
+
+        i = 0
+        j = 0
+
+        while i<len(slots1) and j<len(slots2):
+            s = max(slots1[i][0],slots2[j][0])
+            e = min(slots1[i][1],slots2[j][1])
+
+            if e - s >= duration:
+                return [s,s+duration]
+
+            if slots1[i][1] < slots2[j][1]:
+                i += 1
+            else:
+                j += 1
+
+            
+
+        return output
+
+
+        

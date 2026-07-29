@@ -1,0 +1,25 @@
+class Solution:
+    def partitionLabels(self, s: str) -> List[int]:
+        seen = set()
+        output = []
+        out = 0
+        HashMap = {}
+        for c in s:
+            if c not in HashMap:
+                HashMap[c] = 1
+            else:
+                HashMap[c] += 1
+
+        for i in s:
+            if HashMap[i]:
+                HashMap[i] -= 1
+                seen.add(i)
+            if not HashMap[i]:
+                seen.remove(i)
+            out += 1
+            if not seen:
+                output.append(out)
+                out = 0
+        return output
+
+        
