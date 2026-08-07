@@ -1,0 +1,66 @@
+class Solution:
+    def combine(self, n: int, k: int) -> List[List[int]]:
+        res = []
+        nums = [i for i in range(1,n+1)]
+        print(nums)
+        def dfs(i,sub):
+            if len(sub) == k:
+                res.append(sub.copy())
+                return 
+            for j in range(i,n):
+                sub.append(nums[j])
+                dfs(j+1,sub)
+                sub.pop()
+        dfs(0,[])
+        return res
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        # nums = [i for i in range(1,n+1)]
+        # print(nums)
+        # output = []
+        # def dfs(idx,sub):
+        #     if len(sub) == k:
+        #         output.append(sub.copy())
+        #         return 
+        #     for i in range(idx,n):
+        #             sub.append(nums[i])
+        #             dfs(i+1,sub)
+        #             sub.pop()
+        # dfs(0,[])
+        # return output
+        
